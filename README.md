@@ -3,7 +3,7 @@
 
 ### Dataset
 - 19th, 20th August 2019, Order and Trade Data for INFY Stock.
-- LOB Aggregated at 10-second interval
+- LOB Aggregated at 1-second interval
 
 ### LOB State is defined as
 - Best Bid ($P_b$): Highest price in the buy side.
