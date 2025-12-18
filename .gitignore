@@ -1,0 +1,4 @@
+venv/
+Orders/
+Trades/
+__pycache__/
