@@ -7,7 +7,7 @@
 
 ---
 
-## Project Workflow & Gap Analysis
+## Project Workflow & TODOs
 
 ### Goal
 To model Prop Algo behavior by predicting their participation, price, and quantity, and verifying the model by reconstructing the LOB using "Rest of World" orders mixed with "Predicted Prop" orders.
