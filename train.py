@@ -15,8 +15,9 @@ df = pd.read_csv("LOB/LOB_19082019.csv")
 
 df["next_participated"] = df["prop_participated"].shift(-1)
 df["next_side"] = df["is_prop_buy"].shift(-1)
-df["next_price_delta"] = df["prop_price"].shift(-1) - df["mid_price"]
+df["next_price_delta"] = (df["prop_price"].shift(-1) / df["mid_price"]) - 1
 df["next_qty_log"] = np.log1p(df["prop_qty"].shift(-1))
+
 
 df = df.dropna(subset=["next_participated"]).copy()
 
@@ -24,6 +25,10 @@ df["spread_pct"] = df["spread"] / df["mid_price"]
 df["depth_ratio"] = df["best_bid_depth"] / (df["best_ask_depth"])
 df["deep_depth_ratio"] = df["deep_bid_depth"] / (df["deep_ask_depth"])
 df["mid_return"] = np.log(df["mid_price"]).diff().fillna(0)
+
+for col in ["imbalance", "mid_return", "spread_pct", "volatility"]:
+    df[f"{col}_lag1"] = df[col].shift(1)
+    df[f"{col}_lag2"] = df[col].shift(2)
 
 features = [
     "spread_pct",
@@ -35,6 +40,12 @@ features = [
     "skewness",
     "kurtosis",
     "row_total_qty",
+    "imbalance_lag1",
+    "mid_return_lag1",
+    "spread_pct_lag1",
+    "imbalance_lag2",
+    "mid_return_lag2",
+    "spread_pct_lag2",
 ]
 
 X = df[features]
