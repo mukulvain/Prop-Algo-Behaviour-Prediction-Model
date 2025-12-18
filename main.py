@@ -100,6 +100,11 @@ while True:
                 elif order.activity_type == "MODIFY":
                     delete_order(stock, previous_order)
 
+            if order.is_prop_algo and not stock.prop_participated:
+                stock.prop_participated = True
+                stock.is_prop_buy = order.is_buy
+                stock.prop_price = order.limit_price
+                stock.prop_qty = order.volume_original
             if not order.is_stop_loss and (order.is_market_order or order.is_ioc):
                 order = get_order(order_reader)
                 continue
@@ -110,11 +115,22 @@ while True:
 
         if min_time != converted_time:
             for _ in stocks:
-                write_line(tickers[_], date, output_file, period)
+                ticker = tickers[_]
+                write_line(ticker, date, output_file, period)
+                ticker.row_total_qty = 0
+                ticker.row_vwa_price = 0
+                ticker.prop_participated = False
+                ticker.is_prop_buy = None
+                ticker.prop_price = None
+                ticker.prop_qty = None
+
             period += 1
             threshold = add_time(threshold, INTERVAL)
 
     volume = trade.trade_quantity
+    if not trade.buy_prop_algo and not trade.sell_prop_algo:
+        ticker.row_total_qty += volume
+        ticker.row_vwa_price += trade.trade_price * volume
     buyer = trade.buy_order_number
     seller = trade.sell_order_number
     ticker.buy_book.delete(buyer, False, volume)
