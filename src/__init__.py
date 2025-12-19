@@ -1,4 +1,5 @@
 from .constants import WINDOW_SIZE
+from .eval import evaluate
 from .model import MultiTaskLSTM
 from .predictor import Predictor
 from .preprocess import preprocess

@@ -5,6 +5,7 @@ from src import (
     WINDOW_SIZE,
     Predictor,
     State,
+    evaluate,
     load_model,
     preprocess,
     save_model,
@@ -33,6 +34,8 @@ FEATURES = [
 ]
 MODEL_PATH = "models/multitask_lstm.pt"
 SCALER_PATH = "models/feature_scaler.pkl"
+DF_TRUE = "LOB/LOB_True_20082019.csv"
+DF_PRED = "LOB/LOB_Predicted_20082019.csv"
 
 df = pd.read_csv("LOB/LOB_19082019.csv")
 df = preprocess(df)
@@ -56,6 +59,8 @@ model, scaler = load_model(MODEL_PATH, SCALER_PATH)
 df_test = pd.read_csv("LOB/LOB_20082019.csv")
 df_test = preprocess(df_test)
 
-pd.DataFrame(df_test).to_csv("LOB/LOB_True_20082019.csv", index=False)
-predictor = Predictor("LOB/LOB_Predicted_20082019.csv", model, FEATURES, scaler)
+pd.DataFrame(df_test).to_csv(DF_TRUE, index=False)
+predictor = Predictor(DF_PRED, model, FEATURES, scaler)
 predictor.run(df_test)
+
+evaluate(DF_TRUE, DF_PRED)

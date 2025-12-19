@@ -34,15 +34,15 @@ class Predictor:
 
             row = df.iloc[i].copy()
             active = p_part.item() > 0.7
-            row["next_participated"] = bool(active)
+            row["next_participated"] = float(active)
 
             if active:
-                row["next_side"] = p_side.item() > 0.5
+                row["next_side"] = float(p_side.item() > 0.5)
                 # Assuming price = mid_price * (1 + delta)
                 row["next_price_delta"] = p_price.item()
                 row["next_qty_log"] = p_qty.item()
             else:
-                row["next_side"] = False
+                row["next_side"] = 0.0
                 row["next_price_delta"] = 0.0
                 row["next_qty_log"] = 0.0
 
