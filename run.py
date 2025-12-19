@@ -1,12 +1,17 @@
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
-from src import State, preprocess, save_model, train_model
+from src import (
+    WINDOW_SIZE,
+    Predictor,
+    State,
+    load_model,
+    preprocess,
+    save_model,
+    train_model,
+)
 
-df = pd.read_csv("LOB/LOB_19082019.csv")
-df = preprocess(df)
-
-features = [
+FEATURES = [
     "spread_pct",
     "depth_ratio",
     "deep_depth_ratio",
@@ -26,10 +31,15 @@ features = [
     "mid_price_velocity",
     "mid_price_volatility",
 ]
+MODEL_PATH = "models/multitask_lstm.pt"
+SCALER_PATH = "models/feature_scaler.pkl"
+
+df = pd.read_csv("LOB/LOB_19082019.csv")
+df = preprocess(df)
 
 # Scaling is mandatory for LSTMs
 scaler = StandardScaler()
-X_scaled = scaler.fit_transform(df[features].fillna(0))
+X_scaled = scaler.fit_transform(df[FEATURES].fillna(0))
 
 dataset = State(
     X_scaled,
@@ -37,7 +47,15 @@ dataset = State(
     df["next_side"].fillna(0),
     df["next_price_delta"].fillna(0),
     df["next_qty_log"].fillna(0),
-    window_size=10,
+    window_size=WINDOW_SIZE,
 )
-model, optimizer = train_model(dataset, features)
-save_model(model, optimizer, features, scaler)
+model, optimizer = train_model(dataset, FEATURES)
+save_model(model, optimizer, FEATURES, scaler, MODEL_PATH, SCALER_PATH)
+model, scaler = load_model(MODEL_PATH, SCALER_PATH)
+
+df_test = pd.read_csv("LOB/LOB_20082019.csv")
+df_test = preprocess(df_test)
+
+pd.DataFrame(df_test).to_csv("LOB/LOB_True_20082019.csv", index=False)
+predictor = Predictor("LOB/LOB_Predicted_20082019.csv", model, FEATURES, scaler)
+predictor.run(df_test)

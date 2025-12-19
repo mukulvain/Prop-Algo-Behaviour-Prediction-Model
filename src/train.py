@@ -1,15 +1,15 @@
-import joblib
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 
-from model import MultiTaskLSTM
+from .model import MultiTaskLSTM
+from .constants import HIDDEN_SIZE
 
 
 def train_model(dataset, features):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = MultiTaskLSTM(input_size=len(features), hidden_size=128).to(device)
+    model = MultiTaskLSTM(input_size=len(features), hidden_size=HIDDEN_SIZE).to(device)
 
     criterion_cls = nn.BCELoss()  # For Part and Side
     criterion_reg = nn.MSELoss()  # For Price and Qty
@@ -17,7 +17,7 @@ def train_model(dataset, features):
 
     loader = DataLoader(dataset, batch_size=64, shuffle=False)
 
-    # --- 4. TRAINING LOOP ---
+    # --- TRAINING LOOP ---
     print("Starting Multi-Task Training...")
     model.train()
     for epoch in range(10):
@@ -71,16 +71,3 @@ def train_model(dataset, features):
 
     print("\nModel Training Complete.")
     return model, optimizer
-
-
-def save_model(model, optimizer, features, scaler):
-    torch.save(
-        {
-            "model_state_dict": model.state_dict(),
-            "optimizer_state_dict": optimizer.state_dict(),
-            "input_size": len(features),
-            "window_size": 10,
-        },
-        "models/multitask_lstm.pt",
-    )
-    joblib.dump(scaler, "models/feature_scaler.pkl")

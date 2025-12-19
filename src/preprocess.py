@@ -1,5 +1,6 @@
 import numpy as np
 
+from .constants import WINDOW_SIZE
 
 def preprocess(df):
     g = df.groupby("symbol")
@@ -42,14 +43,12 @@ def preprocess(df):
     )
     df["ofi"] = df["ofi_bid"] + df["ofi_ask"]
 
-    WINDOW = 10
-
     df["mid_price_velocity"] = g["mid_price"].transform(
-        lambda x: (x - x.shift(WINDOW - 1)) / WINDOW
+        lambda x: (x - x.shift(WINDOW_SIZE - 1)) / WINDOW_SIZE
     )
 
     df["mid_price_volatility"] = (
-        g["mid_price"].rolling(WINDOW).std().reset_index(level=0, drop=True)
+        g["mid_price"].rolling(WINDOW_SIZE).std().reset_index(level=0, drop=True)
     )
 
     for col in ["imbalance", "mid_return", "spread_pct", "volatility"]:
