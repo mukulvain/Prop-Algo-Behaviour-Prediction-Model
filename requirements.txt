@@ -3,3 +3,4 @@ sortedcontainers
 pandas
 scikit-learn
 xgboost
+torch
