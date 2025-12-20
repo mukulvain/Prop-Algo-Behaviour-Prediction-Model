@@ -25,22 +25,26 @@ class Predictor:
         results = [df.iloc[i].to_dict() for i in range(WINDOW_SIZE)]
 
         # Prediction loop
+        self.model.eval()
         for i in range(WINDOW_SIZE, len(df)):
             x_window = X[i - WINDOW_SIZE : i]
             x = torch.tensor(x_window, dtype=torch.float32).unsqueeze(0).to(self.device)
 
             with torch.no_grad():
-                p_part, p_side, p_price, p_qty = self.model(x)
+                l_part, l_side, l_price, l_qty = self.model(x)
+
+                p_part = torch.sigmoid(l_part).item()
+                p_side = torch.sigmoid(l_side).item()
 
             row = df.iloc[i].copy()
-            active = p_part.item() > 0.7
+            active = p_part > 0.7
             row["next_participated"] = float(active)
 
             if active:
-                row["next_side"] = float(p_side.item() > 0.5)
+                row["next_side"] = float(p_side > 0.5)
                 # Assuming price = mid_price * (1 + delta)
-                row["next_price_delta"] = p_price.item()
-                row["next_qty_log"] = p_qty.item()
+                row["next_price_delta"] = l_price.item()
+                row["next_qty_log"] = l_qty.item()
             else:
                 row["next_side"] = 0.0
                 row["next_price_delta"] = 0.0

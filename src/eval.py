@@ -3,10 +3,7 @@ import numpy as np
 from sklearn.metrics import (
     classification_report,
     f1_score,
-    mean_absolute_error,
     mean_squared_error,
-    precision_recall_curve,
-    auc,
 )
 
 
@@ -17,12 +14,14 @@ def evaluate(true_path, pred_path):
     # EVALUATE PARTICIPATION (The Gatekeeper)
     y_true_part = df_true["next_participated"].astype(int)
     y_pred_part = df_pred["next_participated"].astype(int)
+    part_f1_macro = f1_score(y_true_part, y_pred_part, average='macro')
 
     print("=== PARTICIPATION METRICS ===")
     print(classification_report(y_true_part, y_pred_part))
 
     # EVALUATE SIDE (Conditional on True Positives)
     mask = (y_true_part == 1) & (y_pred_part == 1)
+    side_f1, price_rmse, qty_rmse = 0.0, 0.0, 0.0
 
     if mask.sum() > 0:
         print("\n=== CONDITIONAL METRICS (Correctly Predicted Trades) ===")
@@ -52,3 +51,11 @@ def evaluate(true_path, pred_path):
     mid_rmse = np.sqrt(mean_squared_error(df_true["mid_price"], df_pred["mid_price"]))
     print(f"\n=== GLOBAL MARKET IMPACT ===")
     print(f"Mid-Price RMSE: {mid_rmse:.4f}")
+
+    return {
+        "participation_f1": part_f1_macro,
+        "side_f1": side_f1,
+        "price_rmse": price_rmse,
+        "qty_rmse": qty_rmse,
+        "mid_price_rmse": mid_rmse
+    }

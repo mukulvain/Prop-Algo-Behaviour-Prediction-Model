@@ -20,13 +20,12 @@ class MultiTaskLSTM(nn.Module):
 
     def forward(self, x):
         lstm_out, _ = self.lstm(x)
-        last_time_step = lstm_out[:, -1, :]  # Use the last output of the sequence
-        shared = torch.relu(self.fc_shared(last_time_step))
+        last_step = lstm_out[:, -1, :]  # Use the last output of the sequence
+        shared = torch.relu(self.fc_shared(last_step))
 
-        # Output layers
-        part = torch.sigmoid(self.head_part(shared))
-        side = torch.sigmoid(self.head_side(shared))
-        price = self.head_price(shared)
-        qty = self.head_qty(shared)
-
-        return part.squeeze(), side.squeeze(), price.squeeze(), qty.squeeze()
+        return (
+            self.head_part(shared),
+            self.head_side(shared),
+            self.head_price(shared),
+            self.head_qty(shared),
+        )

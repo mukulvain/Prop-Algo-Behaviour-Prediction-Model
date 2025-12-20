@@ -7,20 +7,23 @@ from .model import MultiTaskLSTM
 from .constants import HIDDEN_SIZE
 
 
-def train_model(dataset, features):
+def train_model(dataset, features, model=None, optimizer=None, epochs=10):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = MultiTaskLSTM(input_size=len(features), hidden_size=HIDDEN_SIZE).to(device)
+    if model is None:
+        model = MultiTaskLSTM(input_size=len(features), hidden_size=HIDDEN_SIZE).to(
+            device
+        )
+        optimizer = optim.Adam(model.parameters(), lr=0.0005)
 
-    criterion_cls = nn.BCELoss()  # For Part and Side
+    criterion_cls = nn.BCEWithLogitsLoss()  # For Part and Side
     criterion_reg = nn.MSELoss()  # For Price and Qty
-    optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-    loader = DataLoader(dataset, batch_size=64, shuffle=False)
+    loader = DataLoader(dataset, batch_size=128, shuffle=True)
 
     # --- TRAINING LOOP ---
     print("Starting Multi-Task Training...")
     model.train()
-    for epoch in range(10):
+    for epoch in range(epochs):
         total_loss = 0
         part_loss_sum, side_loss_sum, price_loss_sum, qty_loss_sum = 0, 0, 0, 0
         count_mask = 0
@@ -35,17 +38,17 @@ def train_model(dataset, features):
             )
 
             optimizer.zero_grad()
-            p_part, p_side, p_price, p_qty = model(x_batch)
+            l_part, l_side, l_price, l_qty = model(x_batch)
 
-            loss_part = criterion_cls(p_part, y_part)
+            loss_part = criterion_cls(l_part.squeeze(), y_part)
             mask = y_part == 1
 
             if mask.sum() > 0:
-                loss_side = criterion_cls(p_side[mask], y_side[mask])
-                loss_price = criterion_reg(p_price[mask], y_price[mask])
-                loss_qty = criterion_reg(p_qty[mask], y_qty[mask])
+                loss_side = criterion_cls(l_side.squeeze()[mask], y_side[mask])
+                loss_price = criterion_reg(l_price.squeeze()[mask], y_price[mask])
+                loss_qty = criterion_reg(l_qty.squeeze()[mask], y_qty[mask])
 
-                loss = loss_part + loss_side + (10 * loss_price) + loss_qty
+                loss = 2.0 * loss_part + 1.5 * loss_side + 10 * loss_price + loss_qty
 
                 side_loss_sum += loss_side.item()
                 price_loss_sum += loss_price.item()
