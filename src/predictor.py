@@ -51,6 +51,8 @@ class Predictor:
                 row["next_qty_log"] = 0.0
 
             results.append(row.to_dict())
+            if i % 10000 == 0:
+                print(f"Progress: {i}/{len(df)}")
 
         # Save result
         pd.DataFrame(results).to_csv(self.output_file, index=False)
