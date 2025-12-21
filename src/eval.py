@@ -14,7 +14,7 @@ def evaluate(true_path, pred_path):
     # EVALUATE PARTICIPATION (The Gatekeeper)
     y_true_part = df_true["next_participated"].astype(int)
     y_pred_part = df_pred["next_participated"].astype(int)
-    part_f1_macro = f1_score(y_true_part, y_pred_part, average='macro')
+    part_f1_macro = f1_score(y_true_part, y_pred_part, average="macro")
 
     print("=== PARTICIPATION METRICS ===")
     print(classification_report(y_true_part, y_pred_part))
@@ -46,16 +46,9 @@ def evaluate(true_path, pred_path):
     else:
         print("\nNo overlapping trades found for conditional evaluation.")
 
-    # MARKET STATE RMSE (Global)
-    # How much did the mid-price in your simulation drift from reality?
-    mid_rmse = np.sqrt(mean_squared_error(df_true["mid_price"], df_pred["mid_price"]))
-    print(f"\n=== GLOBAL MARKET IMPACT ===")
-    print(f"Mid-Price RMSE: {mid_rmse:.4f}")
-
     return {
         "participation_f1": part_f1_macro,
         "side_f1": side_f1,
         "price_rmse": price_rmse,
         "qty_rmse": qty_rmse,
-        "mid_price_rmse": mid_rmse
     }

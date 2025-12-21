@@ -8,11 +8,12 @@ from .losses import MultiTaskLoss
 from .constants import HIDDEN_SIZE
 
 
-def train_model(dataset, features, model=None, optimizer=None, epochs=10):
+def train_model(dataset, features, model=None, optimizer=None, criterion=None,epochs=10):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     # device = torch.device("cpu") # Forced CPU as per user request
-    
-    criterion = MultiTaskLoss(num_tasks=4).to(device)
+    if criterion is None:
+        from .losses import MultiTaskLoss
+        criterion = MultiTaskLoss(num_tasks=4).to(device)
 
     if model is None:
         model = MultiTaskLSTM(input_size=len(features), hidden_size=HIDDEN_SIZE).to(
@@ -29,7 +30,7 @@ def train_model(dataset, features, model=None, optimizer=None, epochs=10):
     print("Starting Multi-Task Training with Uncertainty Weighting...")
     model.train()
     criterion.train()
-    
+
     for epoch in range(epochs):
         total_loss = 0
         part_loss_sum, side_loss_sum, price_loss_sum, qty_loss_sum = 0, 0, 0, 0
@@ -46,7 +47,7 @@ def train_model(dataset, features, model=None, optimizer=None, epochs=10):
 
             optimizer.zero_grad()
             preds = model(x_batch)
-            
+
             # Loss forward pass
             loss, l1, l2, l3, l4 = criterion(preds, targets)
 
@@ -65,7 +66,7 @@ def train_model(dataset, features, model=None, optimizer=None, epochs=10):
         # Get learned weights (sigmas)
         with torch.no_grad():
             weights = torch.exp(-criterion.log_vars).cpu().numpy()
-        
+
         print(
             f"Epoch {epoch+1} | "
             f"Total: {total_loss/len(loader):.4f} | "
@@ -77,4 +78,4 @@ def train_model(dataset, features, model=None, optimizer=None, epochs=10):
         )
 
     print("\nModel Training Complete.")
-    return model, optimizer
+    return model, optimizer, criterion

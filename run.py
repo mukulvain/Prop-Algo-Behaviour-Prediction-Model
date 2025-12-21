@@ -43,8 +43,6 @@ DATES = [
     "26082019",
     "27082019",
     "28082019",
-    "29082019",
-    "30082019",
 ]
 MODEL_PATH = "models/multitask_lstm_final.pt"
 SCALER_PATH = "models/feature_scaler_final.pkl"
@@ -54,6 +52,7 @@ history = []
 
 model = None
 optimizer = None
+criterion = None
 scaler = StandardScaler()
 
 print("Starting 10-Day Walk-Forward Simulation...")
@@ -87,8 +86,8 @@ for i in range(len(DATES) - 1):
     )
 
     # 2. Train/Fine-tune
-    model, optimizer = train_model(
-        train_dataset, FEATURES, model=model, optimizer=optimizer
+    model, optimizer, criterion = train_model(
+        train_dataset, FEATURES, model=model, optimizer=optimizer, criterion=criterion
     )
     save_model(model, optimizer, FEATURES, scaler, MODEL_PATH, SCALER_PATH)
 
