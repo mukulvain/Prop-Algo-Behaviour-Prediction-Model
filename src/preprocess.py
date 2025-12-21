@@ -48,7 +48,7 @@ def preprocess(df):
     )
 
     df["mid_price_volatility"] = (
-        g["mid_price"].rolling(WINDOW_SIZE).std().reset_index(level=0, drop=True)
+        g["mid_return"].rolling(WINDOW_SIZE).std().reset_index(level=0, drop=True)
     )
 
     for col in ["imbalance", "mid_return", "spread_pct", "volatility"]:
