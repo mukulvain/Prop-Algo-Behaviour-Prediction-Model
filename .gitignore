@@ -2,4 +2,3 @@ venv/
 Orders/
 Trades/
 __pycache__/
-*.csv

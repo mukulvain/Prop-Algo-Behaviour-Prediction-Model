@@ -10,7 +10,7 @@ from .constants import HIDDEN_SIZE
 
 def train_model(dataset, features, model=None, optimizer=None, epochs=10):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    # device = torch.device("cpu") # Forced CPU as per user request
+    # device = torch.device("cpu") 
     
     criterion = MultiTaskLoss(num_tasks=4).to(device)
 
