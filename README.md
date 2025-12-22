@@ -2,7 +2,8 @@
 *Given the market state at the start of the minute, what is the likelihood that the Prop Algo (Client Identity Flag 2) will enter the market at least once in the next 60 seconds? And if yes, what will be the price and quantity?*
 
 ### Dataset
-- 19th, 20th August 2019, Order and Trade Data for INFY Stock.
+- 19th - 28th August 2019, Order and Trade Data for INFY Stock.
+- Further dates were not used, because 29th August 2019 was an unusual trading day due to being last Thursday of August, i.e. monthly expiry of the Nifty August 2019 futures and options (F&O) contracts.
 - LOB Aggregated at 1-second interval
 
 ---
@@ -19,7 +20,7 @@ To model Prop Algo behavior by predicting their participation, price, and quanti
    - **Target**: Participation (Yes/No), Side (Buy/Sell), Price (Limit Price), Quantity.
 3. **Initial State**: Use Day $N+1$ (e.g., Aug 20th) pre-open state as the starting point.
 4. **Simulation**: Reconstruct Day $N+1$ LOB using the Initial State and RoW Orders.
-   - **Injection**: At each step, use the Model (trained on Day $N$) to predict if Prop Algo *would* act given the *current simulated* LOB state. 
+   - **Injection**: At each step, use the Model (trained on Day $N$) to predict if Prop Algo *would* act given the *current simulated* LOB state.
 5. **Reconstruction**: Run the simulation for the full day to generate `Predicted LOB`.The entire previous row is used for next step prediction. 4 fields are predicted. Prop algo participation, side (buy/sell), price & quantity.
 6. **Comparison**: Compare `Predicted LOB` vs `Actual LOB` (Day $N+1$).
 7. **Metrics**: Calculate error metrics (e.g., RMSE of Mid-Price, Spread deviation).
@@ -42,5 +43,14 @@ To model Prop Algo behavior by predicting their participation, price, and quanti
 - Order Flow Imbalance (OFI): $OFI_t = e_t \times q_t$. Indicates which side is "pressuring" prices short-term.
 - Mid-Price Velocity: Rate of change of Mid-Price over the last 10 seconds.
 - Mid-Price Volatility: Standard deviation of the Mid-Price over the last 10 seconds (Vol Surface).
+
+## How to Run
+
+### To create LOB files
+`python main.py <date> <time_interval_in_seconds>`
+e.g. python main.py 19082019 1
+
+### To run the code
+`python run.py`
 
 
