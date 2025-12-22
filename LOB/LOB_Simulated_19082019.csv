@@ -1,0 +1,1 @@
+date,period,symbol,best_bid,best_ask,mid_price,spread,best_bid_depth,best_ask_depth,deep_bid_depth,deep_ask_depth,imbalance,skewness,kurtosis,volatility,row_total_qty,row_vwa_price,prop_participated,is_prop_buy,prop_price,prop_qty,ofi,mid_price_velocity,mid_price_volatility
