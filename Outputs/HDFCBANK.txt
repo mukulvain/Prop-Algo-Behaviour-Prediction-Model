@@ -1,0 +1,253 @@
+Starting 8-Day Walk-Forward Simulation...
+
+====================
+Iteration 1: Train 19082019 -> Predict 20082019
+====================
+Starting Multi-Task Training with Uncertainty Weighting...
+Epoch 1 | Total: 6.3366 | Part: 0.0093 | Side: 0.6909 | Price: 0.0593 | Qty: 5.7379 | W: [1.0993317 0.9166258 1.0983821 0.9498989]
+Epoch 2 | Total: 4.3754 | Part: 0.0061 | Side: 0.6897 | Price: 0.0228 | Qty: 4.0829 | W: [1.2080506 0.8540215 1.2119244 0.8971524]
+Epoch 3 | Total: 4.0523 | Part: 0.0053 | Side: 0.6893 | Price: 0.0083 | Qty: 4.0683 | W: [1.327389   0.80801946 1.3374765  0.8420991 ]
+Epoch 4 | Total: 3.7433 | Part: 0.0050 | Side: 0.6890 | Price: 0.0027 | Qty: 4.0515 | W: [1.4583908  0.77583826 1.4750408  0.78841156]
+Epoch 5 | Total: 3.4653 | Part: 0.0049 | Side: 0.6888 | Price: 0.0013 | Qty: 4.0498 | W: [1.6020744  0.75433606 1.6252003  0.7377916 ]
+Epoch 6 | Total: 3.2117 | Part: 0.0049 | Side: 0.6890 | Price: 0.0007 | Qty: 4.0607 | W: [1.7597526  0.74084353 1.7894392  0.6903081 ]
+Epoch 7 | Total: 2.9465 | Part: 0.0049 | Side: 0.6887 | Price: 0.0002 | Qty: 4.0342 | W: [1.9327217  0.73326564 1.96941    0.64656544]
+Epoch 8 | Total: 2.7211 | Part: 0.0049 | Side: 0.6887 | Price: 0.0001 | Qty: 4.0434 | W: [2.122591   0.72910845 2.1666389  0.6062317 ]
+Epoch 9 | Total: 2.5064 | Part: 0.0049 | Side: 0.6888 | Price: 0.0001 | Qty: 4.0502 | W: [2.3307052  0.72717947 2.38289    0.5687193 ]
+Epoch 10 | Total: 2.3005 | Part: 0.0049 | Side: 0.6890 | Price: 0.0001 | Qty: 4.0529 | W: [2.5591505 0.7263813 2.620114  0.5342339]
+
+Model Training Complete.
+Preparing Batch Data...
+Window Shape: (23835, 10, 18)
+Running Inference on 23835 windows...
+Simulation Finished. Saved to Pred/Pred_20082019.csv.
+=== PARTICIPATION METRICS ===
+              precision    recall  f1-score   support
+
+           0       0.98      0.83      0.90      1607
+           1       0.99      1.00      0.99     22238
+
+    accuracy                           0.99     23845
+   macro avg       0.98      0.91      0.95     23845
+weighted avg       0.99      0.99      0.99     23845
+
+
+=== CONDITIONAL METRICS (Correctly Predicted Trades) ===
+Side F1-Score: 0.6953
+Price Delta RMSE: 0.004598
+Quantity (log) RMSE: 1.7874
+
+====================
+Iteration 2: Train 20082019 -> Predict 21082019
+====================
+Starting Multi-Task Training with Uncertainty Weighting...
+Epoch 1 | Total: 1.7197 | Part: 0.0028 | Side: 0.6912 | Price: 0.0000 | Qty: 3.3034 | W: [2.8107705  0.72422713 2.8790088  0.50919867]
+Epoch 2 | Total: 1.5581 | Part: 0.0028 | Side: 0.6913 | Price: 0.0000 | Qty: 3.2782 | W: [3.0867844  0.723489   3.1630359  0.48576626]
+Epoch 3 | Total: 1.4173 | Part: 0.0027 | Side: 0.6910 | Price: 0.0000 | Qty: 3.2881 | W: [3.3893769 0.7236678 3.474702  0.4630133]
+Epoch 4 | Total: 1.2689 | Part: 0.0027 | Side: 0.6912 | Price: 0.0000 | Qty: 3.2729 | W: [3.7211306  0.7235555  3.8167355  0.44141212]
+Epoch 5 | Total: 1.1327 | Part: 0.0028 | Side: 0.6912 | Price: 0.0000 | Qty: 3.2760 | W: [4.0844646  0.7235618  4.192147   0.42079762]
+Epoch 6 | Total: 0.9978 | Part: 0.0027 | Side: 0.6910 | Price: 0.0000 | Qty: 3.2758 | W: [4.482941   0.7234509  4.604215   0.40120125]
+Epoch 7 | Total: 0.8696 | Part: 0.0027 | Side: 0.6911 | Price: 0.0000 | Qty: 3.2829 | W: [4.9199276  0.7235865  5.05656    0.38254145]
+Epoch 8 | Total: 0.7338 | Part: 0.0027 | Side: 0.6911 | Price: 0.0000 | Qty: 3.2618 | W: [5.3985085  0.7232773  5.5531487  0.36502323]
+Epoch 9 | Total: 0.6110 | Part: 0.0027 | Side: 0.6911 | Price: 0.0000 | Qty: 3.2661 | W: [5.9233174 0.7232169 6.0983033 0.348487 ]
+Epoch 10 | Total: 0.4803 | Part: 0.0027 | Side: 0.6909 | Price: 0.0000 | Qty: 3.2380 | W: [6.4981885  0.7232692  6.696812   0.33292586]
+
+Model Training Complete.
+Preparing Batch Data...
+Window Shape: (24167, 10, 18)
+Running Inference on 24167 windows...
+Simulation Finished. Saved to Pred/Pred_21082019.csv.
+=== PARTICIPATION METRICS ===
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      2181
+           1       0.91      1.00      0.95     21996
+
+    accuracy                           0.91     24177
+   macro avg       0.45      0.50      0.48     24177
+weighted avg       0.83      0.91      0.87     24177
+
+
+=== CONDITIONAL METRICS (Correctly Predicted Trades) ===
+Side F1-Score: 0.6950
+Price Delta RMSE: 0.012420
+Quantity (log) RMSE: 1.9990
+
+====================
+Iteration 3: Train 21082019 -> Predict 22082019
+====================
+Starting Multi-Task Training with Uncertainty Weighting...
+Epoch 1 | Total: 0.6505 | Part: 0.0051 | Side: 0.6911 | Price: 0.0001 | Qty: 4.0944 | W: [7.116148   0.72333413 7.360588   0.31192717]
+Epoch 2 | Total: 0.4927 | Part: 0.0041 | Side: 0.6910 | Price: 0.0001 | Qty: 4.0571 | W: [7.800935  0.7241586 8.090132  0.293157 ]
+Epoch 3 | Total: 0.3487 | Part: 0.0041 | Side: 0.6912 | Price: 0.0001 | Qty: 4.0148 | W: [8.551069   0.72308713 8.891702   0.27664962]
+Epoch 4 | Total: 0.2232 | Part: 0.0040 | Side: 0.6910 | Price: 0.0001 | Qty: 4.0145 | W: [9.374062   0.7236463  9.772944   0.26166058]
+Epoch 5 | Total: 0.1016 | Part: 0.0040 | Side: 0.6909 | Price: 0.0001 | Qty: 4.0060 | W: [10.273361    0.72385055 10.740878    0.24810883]
+Epoch 6 | Total: -0.0179 | Part: 0.0040 | Side: 0.6908 | Price: 0.0001 | Qty: 3.9880 | W: [11.2577095   0.723708   11.805094    0.23590027]
+Epoch 7 | Total: -0.1348 | Part: 0.0040 | Side: 0.6906 | Price: 0.0001 | Qty: 3.9633 | W: [12.33262     0.7240709  12.9749155   0.22478376]
+Epoch 8 | Total: -0.2356 | Part: 0.0040 | Side: 0.6907 | Price: 0.0001 | Qty: 3.9905 | W: [13.507874    0.7230249  14.259403    0.21453655]
+Epoch 9 | Total: -0.3451 | Part: 0.0040 | Side: 0.6903 | Price: 0.0001 | Qty: 3.9636 | W: [14.78918     0.7246216  15.671461    0.20509458]
+Epoch 10 | Total: -0.4497 | Part: 0.0040 | Side: 0.6903 | Price: 0.0001 | Qty: 3.9433 | W: [16.184727    0.72416764 17.223526    0.19663316]
+
+Model Training Complete.
+Preparing Batch Data...
+Window Shape: (24283, 10, 18)
+Running Inference on 24283 windows...
+Simulation Finished. Saved to Pred/Pred_22082019.csv.
+=== PARTICIPATION METRICS ===
+              precision    recall  f1-score   support
+
+           0       0.89      0.32      0.47      2077
+           1       0.94      1.00      0.97     22216
+
+    accuracy                           0.94     24293
+   macro avg       0.91      0.66      0.72     24293
+weighted avg       0.94      0.94      0.92     24293
+
+
+=== CONDITIONAL METRICS (Correctly Predicted Trades) ===
+Side F1-Score: 0.7223
+Price Delta RMSE: 0.004175
+Quantity (log) RMSE: 1.9185
+
+====================
+Iteration 4: Train 22082019 -> Predict 23082019
+====================
+Starting Multi-Task Training with Uncertainty Weighting...
+Epoch 1 | Total: -0.6272 | Part: 0.0028 | Side: 0.6825 | Price: 0.0000 | Qty: 3.6743 | W: [17.779846    0.7327149  18.942438    0.19016553]
+Epoch 2 | Total: -0.7274 | Part: 0.0027 | Side: 0.6816 | Price: 0.0000 | Qty: 3.6644 | W: [19.526007    0.7338284  20.8326      0.18430348]
+Epoch 3 | Total: -0.8273 | Part: 0.0027 | Side: 0.6812 | Price: 0.0000 | Qty: 3.6401 | W: [21.43105     0.7315798  22.91066     0.17880534]
+Epoch 4 | Total: -0.9226 | Part: 0.0026 | Side: 0.6808 | Price: 0.0000 | Qty: 3.6372 | W: [23.503662    0.73455924 25.195503    0.17377174]
+Epoch 5 | Total: -1.0081 | Part: 0.0027 | Side: 0.6812 | Price: 0.0000 | Qty: 3.6516 | W: [25.75733     0.73411465 27.707602    0.1689964 ]
+Epoch 6 | Total: -1.1050 | Part: 0.0026 | Side: 0.6809 | Price: 0.0000 | Qty: 3.6352 | W: [28.216122    0.7342676  30.469831    0.16471924]
+Epoch 7 | Total: -1.1919 | Part: 0.0026 | Side: 0.6812 | Price: 0.0000 | Qty: 3.6394 | W: [30.880909    0.73283195 33.507557    0.16087511]
+Epoch 8 | Total: -1.2815 | Part: 0.0026 | Side: 0.6809 | Price: 0.0000 | Qty: 3.6198 | W: [33.782696    0.7322722  36.847374    0.15738101]
+Epoch 9 | Total: -1.3705 | Part: 0.0026 | Side: 0.6805 | Price: 0.0000 | Qty: 3.6039 | W: [36.906483    0.7356166  40.51992     0.15438679]
+Epoch 10 | Total: -1.4626 | Part: 0.0025 | Side: 0.6805 | Price: 0.0000 | Qty: 3.5744 | W: [40.32226     0.73620176 44.55829     0.15195529]
+
+Model Training Complete.
+Preparing Batch Data...
+Window Shape: (24189, 10, 18)
+Running Inference on 24189 windows...
+Simulation Finished. Saved to Pred/Pred_23082019.csv.
+=== PARTICIPATION METRICS ===
+              precision    recall  f1-score   support
+
+           0       0.99      0.97      0.98      1741
+           1       1.00      1.00      1.00     22458
+
+    accuracy                           1.00     24199
+   macro avg       0.99      0.99      0.99     24199
+weighted avg       1.00      1.00      1.00     24199
+
+
+=== CONDITIONAL METRICS (Correctly Predicted Trades) ===
+Side F1-Score: 0.7764
+Price Delta RMSE: 0.011502
+Quantity (log) RMSE: 1.7940
+
+====================
+Iteration 5: Train 23082019 -> Predict 26082019
+====================
+Starting Multi-Task Training with Uncertainty Weighting...
+Epoch 1 | Total: -1.6912 | Part: 0.0007 | Side: 0.6578 | Price: 0.0001 | Qty: 3.2285 | W: [44.624798    0.7612605  48.94877     0.15229177]
+Epoch 2 | Total: -1.7976 | Part: 0.0007 | Side: 0.6567 | Price: 0.0001 | Qty: 3.1772 | W: [49.36247     0.7600618  53.773117    0.15319973]
+Epoch 3 | Total: -1.8891 | Part: 0.0006 | Side: 0.6561 | Price: 0.0001 | Qty: 3.1944 | W: [54.48977    0.7658426 59.073112   0.1537828]
+Epoch 4 | Total: -1.9844 | Part: 0.0006 | Side: 0.6566 | Price: 0.0001 | Qty: 3.1758 | W: [60.074722    0.75979245 64.901985    0.1546544 ]
+Epoch 5 | Total: -2.0793 | Part: 0.0006 | Side: 0.6565 | Price: 0.0001 | Qty: 3.1765 | W: [66.17922     0.7612309  71.2917      0.15518233]
+Epoch 6 | Total: -2.1730 | Part: 0.0006 | Side: 0.6561 | Price: 0.0001 | Qty: 3.1720 | W: [72.822044    0.76299447 78.3131      0.15573134]
+Epoch 7 | Total: -2.2661 | Part: 0.0006 | Side: 0.6560 | Price: 0.0001 | Qty: 3.1527 | W: [80.06813     0.761191   86.03214     0.15646012]
+Epoch 8 | Total: -2.3598 | Part: 0.0005 | Side: 0.6557 | Price: 0.0001 | Qty: 3.1604 | W: [88.00509     0.7629116  94.51644     0.15702769]
+Epoch 9 | Total: -2.4396 | Part: 0.0006 | Side: 0.6552 | Price: 0.0001 | Qty: 3.1776 | W: [ 96.49359      0.76383436 103.769035     0.15700166]
+Epoch 10 | Total: -2.5405 | Part: 0.0005 | Side: 0.6554 | Price: 0.0001 | Qty: 3.1562 | W: [105.92014      0.7627714  113.97331      0.15744784]
+
+Model Training Complete.
+Preparing Batch Data...
+Window Shape: (24209, 10, 18)
+Running Inference on 24209 windows...
+Simulation Finished. Saved to Pred/Pred_26082019.csv.
+=== PARTICIPATION METRICS ===
+              precision    recall  f1-score   support
+
+           0       0.99      0.97      0.98      1765
+           1       1.00      1.00      1.00     22454
+
+    accuracy                           1.00     24219
+   macro avg       0.99      0.99      0.99     24219
+weighted avg       1.00      1.00      1.00     24219
+
+
+=== CONDITIONAL METRICS (Correctly Predicted Trades) ===
+Side F1-Score: 0.6375
+Price Delta RMSE: 0.008310
+Quantity (log) RMSE: 1.7926
+
+====================
+Iteration 6: Train 26082019 -> Predict 27082019
+====================
+Starting Multi-Task Training with Uncertainty Weighting...
+Epoch 1 | Total: -2.5458 | Part: 0.0007 | Side: 0.6948 | Price: 0.0000 | Qty: 3.3431 | W: [115.71813      0.72584265 125.322296     0.15494019]
+Epoch 2 | Total: -2.6373 | Part: 0.0007 | Side: 0.6911 | Price: 0.0000 | Qty: 3.3223 | W: [126.2152       0.72332203 137.79413      0.15310729]
+Epoch 3 | Total: -2.7317 | Part: 0.0006 | Side: 0.6911 | Price: 0.0000 | Qty: 3.3241 | W: [137.80669      0.72309446 151.49442      0.1523001 ]
+Epoch 4 | Total: -2.8221 | Part: 0.0006 | Side: 0.6912 | Price: 0.0000 | Qty: 3.3104 | W: [1.5053017e+02 7.2333348e-01 1.6653877e+02 1.5171978e-01]
+Epoch 5 | Total: -2.9048 | Part: 0.0006 | Side: 0.6908 | Price: 0.0000 | Qty: 3.3240 | W: [1.6420297e+02 7.2403377e-01 1.8308081e+02 1.5111707e-01]
+Epoch 6 | Total: -3.0015 | Part: 0.0005 | Side: 0.6908 | Price: 0.0000 | Qty: 3.2777 | W: [1.7926151e+02 7.2441542e-01 2.0124556e+02 1.5181983e-01]
+Epoch 7 | Total: -3.0817 | Part: 0.0005 | Side: 0.6905 | Price: 0.0000 | Qty: 3.2914 | W: [1.9528357e+02 7.2372168e-01 2.2118970e+02 1.5177964e-01]
+Epoch 8 | Total: -3.1664 | Part: 0.0005 | Side: 0.6908 | Price: 0.0000 | Qty: 3.2890 | W: [2.1267862e+02 7.2273123e-01 2.4311942e+02 1.5194918e-01]
+Epoch 9 | Total: -3.2516 | Part: 0.0005 | Side: 0.6909 | Price: 0.0000 | Qty: 3.2756 | W: [2.3147467e+02 7.2349364e-01 2.6719556e+02 1.5218854e-01]
+Epoch 10 | Total: -3.3351 | Part: 0.0005 | Side: 0.6908 | Price: 0.0000 | Qty: 3.3002 | W: [2.5157158e+02 7.2380346e-01 2.9363901e+02 1.5201046e-01]
+
+Model Training Complete.
+Preparing Batch Data...
+Window Shape: (24163, 10, 18)
+Running Inference on 24163 windows...
+Simulation Finished. Saved to Pred/Pred_27082019.csv.
+=== PARTICIPATION METRICS ===
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1770
+           1       0.93      1.00      0.96     22403
+
+    accuracy                           0.93     24173
+   macro avg       0.46      0.50      0.48     24173
+weighted avg       0.86      0.93      0.89     24173
+
+
+=== CONDITIONAL METRICS (Correctly Predicted Trades) ===
+Side F1-Score: 0.1004
+Price Delta RMSE: 0.007713
+Quantity (log) RMSE: 1.9281
+
+====================
+Iteration 7: Train 27082019 -> Predict 28082019
+====================
+Starting Multi-Task Training with Uncertainty Weighting...
+Epoch 1 | Total: -3.0427 | Part: 0.0016 | Side: 0.6935 | Price: 0.0000 | Qty: 3.8477 | W: [2.5730017e+02 7.2130096e-01 3.2265070e+02 1.4139791e-01]
+Epoch 2 | Total: -3.1926 | Part: 0.0012 | Side: 0.6938 | Price: 0.0000 | Qty: 3.8214 | W: [2.6689682e+02 7.2044325e-01 3.5486145e+02 1.3641046e-01]
+Epoch 3 | Total: -3.2662 | Part: 0.0012 | Side: 0.6935 | Price: 0.0000 | Qty: 3.8004 | W: [2.7750204e+02 7.2128385e-01 3.9022385e+02 1.3409238e-01]
+Epoch 4 | Total: -3.3364 | Part: 0.0011 | Side: 0.6933 | Price: 0.0000 | Qty: 3.8163 | W: [2.8867084e+02 7.2124219e-01 4.2900830e+02 1.3264744e-01]
+Epoch 5 | Total: -3.3910 | Part: 0.0011 | Side: 0.6936 | Price: 0.0000 | Qty: 3.8171 | W: [2.9983484e+02 7.2107804e-01 4.7146762e+02 1.3161612e-01]
+Epoch 6 | Total: -3.4478 | Part: 0.0011 | Side: 0.6933 | Price: 0.0000 | Qty: 3.8049 | W: [3.1182751e+02 7.2124660e-01 5.1773627e+02 1.3149096e-01]
+Epoch 7 | Total: -3.5280 | Part: 0.0010 | Side: 0.6937 | Price: 0.0000 | Qty: 3.8041 | W: [3.2434830e+02 7.2029489e-01 5.6902234e+02 1.3163346e-01]
+Epoch 8 | Total: -3.5763 | Part: 0.0010 | Side: 0.6934 | Price: 0.0000 | Qty: 3.8173 | W: [3.3705054e+02 7.2056377e-01 6.2489905e+02 1.3121563e-01]
+Epoch 9 | Total: -3.6631 | Part: 0.0009 | Side: 0.6930 | Price: 0.0000 | Qty: 3.7933 | W: [3.4968686e+02 7.2094339e-01 6.8678290e+02 1.3156499e-01]
+Epoch 10 | Total: -3.7302 | Part: 0.0009 | Side: 0.6937 | Price: 0.0000 | Qty: 3.8104 | W: [3.6521249e+02 7.2089320e-01 7.5459711e+02 1.3148898e-01]
+
+Model Training Complete.
+Preparing Batch Data...
+Window Shape: (23692, 10, 18)
+Running Inference on 23692 windows...
+Simulation Finished. Saved to Pred/Pred_28082019.csv.
+=== PARTICIPATION METRICS ===
+              precision    recall  f1-score   support
+
+           0       0.90      0.44      0.59      1360
+           1       0.97      1.00      0.98     22342
+
+    accuracy                           0.97     23702
+   macro avg       0.94      0.72      0.79     23702
+weighted avg       0.96      0.97      0.96     23702
+
+
+=== CONDITIONAL METRICS (Correctly Predicted Trades) ===
+Side F1-Score: 0.4592
+Price Delta RMSE: 0.012420
+Quantity (log) RMSE: 1.9181

@@ -1,0 +1,265 @@
+Starting 8-Day Walk-Forward Simulation...
+
+====================
+Iteration 1: Train 19082019 -> Predict 20082019
+====================
+Starting Multi-Task Training with Uncertainty Weighting...
+Epoch 1 | Total: 5.0221 | Part: 0.0213 | Side: 0.6904 | Price: 0.0419 | Qty: 4.3786 | W: [1.0963327  0.91807055 1.0958862  0.9613138 ]
+Epoch 2 | Total: 3.0510 | Part: 0.0209 | Side: 0.6896 | Price: 0.0179 | Qty: 2.5904 | W: [1.2017163  0.8561627  1.2047945  0.92420155]
+Epoch 3 | Total: 2.8379 | Part: 0.0209 | Side: 0.6892 | Price: 0.0093 | Qty: 2.5628 | W: [1.316933   0.81055766 1.324462   0.8819426 ]
+Epoch 4 | Total: 2.6187 | Part: 0.0209 | Side: 0.6894 | Price: 0.0041 | Qty: 2.5233 | W: [1.4428535  0.7778676  1.4559004  0.83821493]
+Epoch 5 | Total: 2.4654 | Part: 0.0209 | Side: 0.6885 | Price: 0.0018 | Qty: 2.5554 | W: [1.5804408  0.75618947 1.5998365  0.7943044 ]
+Epoch 6 | Total: 2.2571 | Part: 0.0209 | Side: 0.6895 | Price: 0.0008 | Qty: 2.5101 | W: [1.7307135 0.7418944 1.7572936 0.7524242]
+Epoch 7 | Total: 2.0955 | Part: 0.0209 | Side: 0.6891 | Price: 0.0004 | Qty: 2.5160 | W: [1.8947413  0.73375404 1.9295483  0.7124449 ]
+Epoch 8 | Total: 1.9241 | Part: 0.0208 | Side: 0.6880 | Price: 0.0003 | Qty: 2.4999 | W: [2.0737221  0.72987735 2.1180227  0.67437935]
+Epoch 9 | Total: 1.7735 | Part: 0.0208 | Side: 0.6889 | Price: 0.0002 | Qty: 2.5021 | W: [2.2688942 0.7275526 2.3243566 0.6386423]
+Epoch 10 | Total: 1.6229 | Part: 0.0208 | Side: 0.6883 | Price: 0.0002 | Qty: 2.4968 | W: [2.4815943  0.72728056 2.5502856  0.60505325]
+
+Model Training Complete.
+Preparing Batch Data...
+Window Shape: (23743, 10, 18)
+Running Inference on 23743 windows...
+Simulation Finished. Saved to Pred/Pred_20082019.csv.
+=== PARTICIPATION METRICS ===
+D:\IIM A\Term 5\Project\Prediction Model\venv\lib\site-packages\sklearn\metrics\_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+D:\IIM A\Term 5\Project\Prediction Model\venv\lib\site-packages\sklearn\metrics\_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+D:\IIM A\Term 5\Project\Prediction Model\venv\lib\site-packages\sklearn\metrics\_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+              precision    recall  f1-score   support
+
+           0       0.45      1.00      0.62     10744
+           1       0.00      0.00      0.00     13009
+
+    accuracy                           0.45     23753
+   macro avg       0.23      0.50      0.31     23753
+weighted avg       0.20      0.45      0.28     23753
+
+
+No overlapping trades found for conditional evaluation.
+
+====================
+Iteration 2: Train 20082019 -> Predict 21082019
+====================
+Starting Multi-Task Training with Uncertainty Weighting...
+Epoch 1 | Total: 1.1746 | Part: 0.0216 | Side: 0.6917 | Price: 0.0001 | Qty: 1.9600 | W: [2.7148771  0.72447586 2.800626   0.5823012 ]
+Epoch 2 | Total: 1.0529 | Part: 0.0215 | Side: 0.6914 | Price: 0.0001 | Qty: 1.9410 | W: [2.969066   0.72317773 3.0751507  0.56085753]
+Epoch 3 | Total: 0.9396 | Part: 0.0215 | Side: 0.6915 | Price: 0.0001 | Qty: 1.9309 | W: [3.2456944 0.7231397 3.3762395 0.5400454]
+Epoch 4 | Total: 0.8249 | Part: 0.0215 | Side: 0.6913 | Price: 0.0001 | Qty: 1.9136 | W: [3.5464356  0.72322285 3.706505   0.5203134 ]
+Epoch 5 | Total: 0.7186 | Part: 0.0215 | Side: 0.6913 | Price: 0.0001 | Qty: 1.9066 | W: [3.8730462  0.72344804 4.06885    0.50112754]
+Epoch 6 | Total: 0.6138 | Part: 0.0215 | Side: 0.6911 | Price: 0.0001 | Qty: 1.8978 | W: [4.2273445  0.7233247  4.4663806  0.48273385]
+Epoch 7 | Total: 0.5114 | Part: 0.0215 | Side: 0.6912 | Price: 0.0001 | Qty: 1.8879 | W: [4.6112204 0.7238798 4.902609  0.4651951]
+Epoch 8 | Total: 0.4015 | Part: 0.0214 | Side: 0.6910 | Price: 0.0001 | Qty: 1.8560 | W: [5.0265884  0.72294956 5.3810344  0.44922727]
+Epoch 9 | Total: 0.3170 | Part: 0.0212 | Side: 0.6907 | Price: 0.0001 | Qty: 1.8762 | W: [5.4764423 0.7243283 5.9060187 0.4333969]
+Epoch 10 | Total: 0.2141 | Part: 0.0207 | Side: 0.6908 | Price: 0.0001 | Qty: 1.8535 | W: [5.9646606  0.72342134 6.482128   0.4187702 ]
+
+Model Training Complete.
+Preparing Batch Data...
+Window Shape: (23814, 10, 18)
+Running Inference on 23814 windows...
+Simulation Finished. Saved to Pred/Pred_21082019.csv.
+=== PARTICIPATION METRICS ===
+D:\IIM A\Term 5\Project\Prediction Model\venv\lib\site-packages\sklearn\metrics\_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+D:\IIM A\Term 5\Project\Prediction Model\venv\lib\site-packages\sklearn\metrics\_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+D:\IIM A\Term 5\Project\Prediction Model\venv\lib\site-packages\sklearn\metrics\_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+              precision    recall  f1-score   support
+
+           0       0.73      1.00      0.84     17400
+           1       0.00      0.00      0.00      6424
+
+    accuracy                           0.73     23824
+   macro avg       0.37      0.50      0.42     23824
+weighted avg       0.53      0.73      0.62     23824
+
+
+No overlapping trades found for conditional evaluation.
+
+====================
+Iteration 3: Train 21082019 -> Predict 22082019
+====================
+Starting Multi-Task Training with Uncertainty Weighting...
+Epoch 1 | Total: 0.3780 | Part: 0.0182 | Side: 0.6888 | Price: 0.0001 | Qty: 2.5216 | W: [6.512702   0.72204226 7.1173944  0.39240056]
+Epoch 2 | Total: 0.2526 | Part: 0.0178 | Side: 0.6881 | Price: 0.0001 | Qty: 2.4918 | W: [7.10723    0.72244245 7.8116627  0.36983564]
+Epoch 3 | Total: 0.1519 | Part: 0.0178 | Side: 0.6882 | Price: 0.0001 | Qty: 2.4986 | W: [7.7457995  0.7227231  8.573702   0.34958148]
+Epoch 4 | Total: 0.0378 | Part: 0.0177 | Side: 0.6913 | Price: 0.0001 | Qty: 2.4506 | W: [8.431659   0.72348636 9.410531   0.3326495 ]
+Epoch 5 | Total: -0.0488 | Part: 0.0176 | Side: 0.6907 | Price: 0.0001 | Qty: 2.4693 | W: [ 9.164721    0.72405857 10.33359     0.31738734]
+Epoch 6 | Total: -0.1398 | Part: 0.0177 | Side: 0.6867 | Price: 0.0001 | Qty: 2.4597 | W: [ 9.946684    0.7242954  11.346935    0.30360952]
+Epoch 7 | Total: -0.2394 | Part: 0.0177 | Side: 0.6899 | Price: 0.0001 | Qty: 2.4040 | W: [10.77883     0.7250935  12.453765    0.29210374]
+Epoch 8 | Total: -0.3235 | Part: 0.0176 | Side: 0.6891 | Price: 0.0001 | Qty: 2.3877 | W: [11.659123    0.72539186 13.674306    0.28182167]
+Epoch 9 | Total: -0.3927 | Part: 0.0176 | Side: 0.6882 | Price: 0.0001 | Qty: 2.4137 | W: [12.58894     0.7253499  15.014137    0.27245158]
+Epoch 10 | Total: -0.4706 | Part: 0.0176 | Side: 0.6871 | Price: 0.0001 | Qty: 2.4027 | W: [13.563629    0.72612023 16.4884      0.26377967]
+
+Model Training Complete.
+Preparing Batch Data...
+Window Shape: (22487, 10, 18)
+Running Inference on 22487 windows...
+Simulation Finished. Saved to Pred/Pred_22082019.csv.
+=== PARTICIPATION METRICS ===
+D:\IIM A\Term 5\Project\Prediction Model\venv\lib\site-packages\sklearn\metrics\_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+D:\IIM A\Term 5\Project\Prediction Model\venv\lib\site-packages\sklearn\metrics\_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+D:\IIM A\Term 5\Project\Prediction Model\venv\lib\site-packages\sklearn\metrics\_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+              precision    recall  f1-score   support
+
+           0       0.53      1.00      0.70     12008
+           1       0.00      0.00      0.00     10489
+
+    accuracy                           0.53     22497
+   macro avg       0.27      0.50      0.35     22497
+weighted avg       0.28      0.53      0.37     22497
+
+
+No overlapping trades found for conditional evaluation.
+
+====================
+Iteration 4: Train 22082019 -> Predict 23082019
+====================
+Starting Multi-Task Training with Uncertainty Weighting...
+Epoch 1 | Total: -0.4803 | Part: 0.0213 | Side: 0.6960 | Price: 0.0001 | Qty: 2.3982 | W: [14.346069    0.7198924  18.002413    0.25663698]
+Epoch 2 | Total: -0.5558 | Part: 0.0211 | Side: 0.6932 | Price: 0.0000 | Qty: 2.3490 | W: [15.147673   0.7215929 19.661188   0.2506674]
+Epoch 3 | Total: -0.6125 | Part: 0.0211 | Side: 0.6933 | Price: 0.0001 | Qty: 2.3446 | W: [15.964917    0.72140604 21.467564    0.24551418]
+Epoch 4 | Total: -0.6748 | Part: 0.0210 | Side: 0.6930 | Price: 0.0001 | Qty: 2.3132 | W: [16.788425    0.72205687 23.44194     0.24103084]
+Epoch 5 | Total: -0.7227 | Part: 0.0210 | Side: 0.6931 | Price: 0.0001 | Qty: 2.3334 | W: [17.610003    0.7211749  25.596735    0.23689914]
+Epoch 6 | Total: -0.7768 | Part: 0.0209 | Side: 0.6934 | Price: 0.0001 | Qty: 2.3215 | W: [18.421297    0.72082704 27.949835    0.23322551]
+Epoch 7 | Total: -0.8280 | Part: 0.0209 | Side: 0.6930 | Price: 0.0001 | Qty: 2.3163 | W: [19.205004    0.7208367  30.517801    0.23039228]
+Epoch 8 | Total: -0.8774 | Part: 0.0209 | Side: 0.6926 | Price: 0.0001 | Qty: 2.3109 | W: [19.949842    0.72242224 33.318542    0.22777277]
+Epoch 9 | Total: -0.9280 | Part: 0.0209 | Side: 0.6931 | Price: 0.0001 | Qty: 2.2982 | W: [20.650938    0.7214471  36.387314    0.22575897]
+Epoch 10 | Total: -0.9769 | Part: 0.0209 | Side: 0.6930 | Price: 0.0001 | Qty: 2.2877 | W: [21.29355     0.7211983  39.7166      0.22417386]
+
+Model Training Complete.
+Preparing Batch Data...
+Window Shape: (23542, 10, 18)
+Running Inference on 23542 windows...
+Simulation Finished. Saved to Pred/Pred_23082019.csv.
+=== PARTICIPATION METRICS ===
+D:\IIM A\Term 5\Project\Prediction Model\venv\lib\site-packages\sklearn\metrics\_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+D:\IIM A\Term 5\Project\Prediction Model\venv\lib\site-packages\sklearn\metrics\_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+D:\IIM A\Term 5\Project\Prediction Model\venv\lib\site-packages\sklearn\metrics\_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+              precision    recall  f1-score   support
+
+           0       0.54      1.00      0.70     12701
+           1       0.00      0.00      0.00     10851
+
+    accuracy                           0.54     23552
+   macro avg       0.27      0.50      0.35     23552
+weighted avg       0.29      0.54      0.38     23552
+
+
+No overlapping trades found for conditional evaluation.
+
+====================
+Iteration 5: Train 23082019 -> Predict 26082019
+====================
+Starting Multi-Task Training with Uncertainty Weighting...
+Epoch 1 | Total: -1.0119 | Part: 0.0202 | Side: 0.6920 | Price: 0.0000 | Qty: 2.4190 | W: [22.033932    0.7238994  43.55228     0.22024079]
+Epoch 2 | Total: -1.0721 | Part: 0.0201 | Side: 0.6914 | Price: 0.0000 | Qty: 2.3811 | W: [22.71938     0.7260298  47.75637     0.21773034]
+Epoch 3 | Total: -1.1239 | Part: 0.0200 | Side: 0.6914 | Price: 0.0000 | Qty: 2.3637 | W: [23.310781    0.72239166 52.364994    0.21623236]
+Epoch 4 | Total: -1.1719 | Part: 0.0200 | Side: 0.6915 | Price: 0.0000 | Qty: 2.3626 | W: [23.794373    0.72308475 57.4166      0.21500632]
+Epoch 5 | Total: -1.2284 | Part: 0.0199 | Side: 0.6913 | Price: 0.0000 | Qty: 2.3240 | W: [24.200077    0.72251004 62.953926    0.21480879]
+Epoch 6 | Total: -1.2720 | Part: 0.0199 | Side: 0.6909 | Price: 0.0000 | Qty: 2.3425 | W: [24.524754    0.72256285 69.02465     0.21445827]
+Epoch 7 | Total: -1.3265 | Part: 0.0198 | Side: 0.6912 | Price: 0.0000 | Qty: 2.3072 | W: [24.769957    0.7234112  75.67862     0.21530022]
+Epoch 8 | Total: -1.3768 | Part: 0.0198 | Side: 0.6909 | Price: 0.0000 | Qty: 2.2910 | W: [24.949186    0.7247473  82.97228     0.21570046]
+Epoch 9 | Total: -1.4313 | Part: 0.0198 | Side: 0.6910 | Price: 0.0000 | Qty: 2.2566 | W: [25.096388    0.7231647  90.96867     0.21780705]
+Epoch 10 | Total: -1.4868 | Part: 0.0197 | Side: 0.6910 | Price: 0.0000 | Qty: 2.2206 | W: [25.210752    0.7237816  99.73462     0.21989536]
+
+Model Training Complete.
+Preparing Batch Data...
+Window Shape: (24094, 10, 18)
+Running Inference on 24094 windows...
+Simulation Finished. Saved to Pred/Pred_26082019.csv.
+=== PARTICIPATION METRICS ===
+              precision    recall  f1-score   support
+
+           0       0.58      1.00      0.73     13863
+           1       0.79      0.00      0.00     10241
+
+    accuracy                           0.58     24104
+   macro avg       0.68      0.50      0.37     24104
+weighted avg       0.67      0.58      0.42     24104
+
+
+=== CONDITIONAL METRICS (Correctly Predicted Trades) ===
+Side F1-Score: 0.8000
+Price Delta RMSE: 0.003235
+Quantity (log) RMSE: 1.3924
+
+====================
+Iteration 6: Train 26082019 -> Predict 27082019
+====================
+Starting Multi-Task Training with Uncertainty Weighting...
+Epoch 1 | Total: -1.4785 | Part: 0.0197 | Side: 0.6947 | Price: 0.0000 | Qty: 2.4637 | W: [ 25.298252     0.7208068  109.61767      0.21426137]
+Epoch 2 | Total: -1.5479 | Part: 0.0196 | Side: 0.6935 | Price: 0.0000 | Qty: 2.3783 | W: [ 25.42824      0.7213055  120.48013      0.21227516]
+Epoch 3 | Total: -1.5939 | Part: 0.0195 | Side: 0.6932 | Price: 0.0000 | Qty: 2.3917 | W: [ 25.528664     0.7212356  132.41817      0.21088688]
+Epoch 4 | Total: -1.6548 | Part: 0.0195 | Side: 0.6930 | Price: 0.0000 | Qty: 2.3335 | W: [ 25.62192      0.72187096 145.5346       0.21216534]
+Epoch 5 | Total: -1.7028 | Part: 0.0194 | Side: 0.6930 | Price: 0.0000 | Qty: 2.3341 | W: [ 25.692049     0.72117186 159.95279      0.21285701]
+Epoch 6 | Total: -1.7542 | Part: 0.0194 | Side: 0.6929 | Price: 0.0000 | Qty: 2.3166 | W: [ 25.68065      0.7223747  175.79846      0.21416241]
+Epoch 7 | Total: -1.8074 | Part: 0.0194 | Side: 0.6921 | Price: 0.0000 | Qty: 2.2958 | W: [ 25.77045      0.7237102  193.20927      0.21531495]
+Epoch 8 | Total: -1.8601 | Part: 0.0193 | Side: 0.6929 | Price: 0.0000 | Qty: 2.2758 | W: [ 25.840162    0.7223488 212.34221     0.2172551]
+Epoch 9 | Total: -1.9129 | Part: 0.0193 | Side: 0.6923 | Price: 0.0000 | Qty: 2.2489 | W: [2.5840775e+01 7.2359616e-01 2.3336679e+02 2.1894410e-01]
+Epoch 10 | Total: -1.9642 | Part: 0.0193 | Side: 0.6925 | Price: 0.0000 | Qty: 2.2360 | W: [2.5888615e+01 7.2204489e-01 2.5647714e+02 2.2079815e-01]
+
+Model Training Complete.
+Preparing Batch Data...
+Window Shape: (23682, 10, 18)
+Running Inference on 23682 windows...
+Simulation Finished. Saved to Pred/Pred_27082019.csv.
+=== PARTICIPATION METRICS ===
+              precision    recall  f1-score   support
+
+           0       0.42      1.00      0.59      9865
+           1       0.94      0.01      0.02     13827
+
+    accuracy                           0.42     23692
+   macro avg       0.68      0.50      0.30     23692
+weighted avg       0.72      0.42      0.26     23692
+
+
+=== CONDITIONAL METRICS (Correctly Predicted Trades) ===
+Side F1-Score: 0.7368
+Price Delta RMSE: 0.004926
+Quantity (log) RMSE: 1.6414
+
+====================
+Iteration 7: Train 27082019 -> Predict 28082019
+====================
+Starting Multi-Task Training with Uncertainty Weighting...
+Epoch 1 | Total: -2.0639 | Part: 0.0192 | Side: 0.6927 | Price: 0.0001 | Qty: 1.8662 | W: [2.6118553e+01 7.2193801e-01 2.7964490e+02 2.3810536e-01]
+Epoch 2 | Total: -2.1373 | Part: 0.0188 | Side: 0.6922 | Price: 0.0001 | Qty: 1.7931 | W: [2.6486841e+01 7.2297114e-01 3.0463776e+02 2.5227818e-01]
+Epoch 3 | Total: -2.1893 | Part: 0.0187 | Side: 0.6928 | Price: 0.0001 | Qty: 1.7591 | W: [2.6641909e+01 7.2104210e-01 3.3136508e+02 2.6423913e-01]
+Epoch 4 | Total: -2.2324 | Part: 0.0187 | Side: 0.6920 | Price: 0.0001 | Qty: 1.7577 | W: [2.6824059e+01 7.2360122e-01 3.5993979e+02 2.7236369e-01]
+Epoch 5 | Total: -2.2820 | Part: 0.0186 | Side: 0.6922 | Price: 0.0001 | Qty: 1.7199 | W: [2.6903831e+01 7.2335100e-01 3.9044592e+02 2.7874285e-01]
+Epoch 6 | Total: -2.3216 | Part: 0.0185 | Side: 0.6882 | Price: 0.0001 | Qty: 1.6958 | W: [2.6936277e+01 7.2132027e-01 4.2281113e+02 2.8436878e-01]
+Epoch 7 | Total: -2.3693 | Part: 0.0184 | Side: 0.6914 | Price: 0.0001 | Qty: 1.6867 | W: [2.7059097e+01 7.2379583e-01 4.5675949e+02 2.8940234e-01]
+Epoch 8 | Total: -2.4061 | Part: 0.0184 | Side: 0.6916 | Price: 0.0001 | Qty: 1.6774 | W: [2.7164446e+01 7.2360754e-01 4.9248233e+02 2.9276934e-01]
+Epoch 9 | Total: -2.4399 | Part: 0.0183 | Side: 0.6878 | Price: 0.0001 | Qty: 1.6394 | W: [2.7276806e+01 7.2297090e-01 5.2898389e+02 2.9753497e-01]
+Epoch 10 | Total: -2.4975 | Part: 0.0182 | Side: 0.6920 | Price: 0.0001 | Qty: 1.6092 | W: [2.7308136e+01 7.2189629e-01 5.6762616e+02 3.0205849e-01]
+
+Model Training Complete.
+Preparing Batch Data...
+Window Shape: (24189, 10, 18)
+Running Inference on 24189 windows...
+Simulation Finished. Saved to Pred/Pred_28082019.csv.
+=== PARTICIPATION METRICS ===
+              precision    recall  f1-score   support
+
+           0       0.41      0.97      0.57      9405
+           1       0.86      0.10      0.18     14794
+
+    accuracy                           0.44     24199
+   macro avg       0.63      0.54      0.38     24199
+weighted avg       0.68      0.44      0.33     24199
+
+
+=== CONDITIONAL METRICS (Correctly Predicted Trades) ===
+Side F1-Score: 0.7202
+Price Delta RMSE: 0.005002
+Quantity (log) RMSE: 1.5765
